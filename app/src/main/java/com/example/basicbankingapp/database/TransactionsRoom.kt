@@ -9,7 +9,7 @@ interface TransactionsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTransactions(vararg transactions: TransactionsDatabase)
 
-    @Query("SELECT * FROM transactionsdatabase")
+    @Query("SELECT * FROM transactionsdatabase ORDER BY id DESC")
     fun getTransactions(): LiveData<List<TransactionsDatabase>>
 
 }

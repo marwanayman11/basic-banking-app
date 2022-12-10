@@ -14,8 +14,9 @@ interface AccountDao {
 
     @Query("SELECT * FROM accountsdatabase WHERE id != :id ")
     fun getAccountsForTransfer(id: Long): LiveData<List<AccountsDatabase>>
+
     @Query("UPDATE accountsdatabase SET currentBalance = :value WHERE id = :id")
-    suspend fun update(id: Long,value: Double)
+    suspend fun update(id: Long, value: Double)
 
 }
 

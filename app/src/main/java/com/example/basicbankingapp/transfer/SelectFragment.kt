@@ -21,7 +21,8 @@ class SelectFragment : Fragment() {
         val account = SelectFragmentArgs.fromBundle(requireArguments()).account
         val application = requireNotNull(this.activity).application
         val viewModelFactory = TransferViewModelFactory(application, account)
-        val viewModel = ViewModelProvider(requireActivity(), viewModelFactory)[TransferViewModel::class.java]
+        val viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory)[TransferViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         val adapter = AccountAdapter(AccountAdapter.OnClickListener {

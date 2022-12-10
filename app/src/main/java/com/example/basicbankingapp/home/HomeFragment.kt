@@ -26,7 +26,8 @@ class HomeFragment : Fragment() {
         val binding = FragmentHomeBinding.inflate(layoutInflater)
         val application = requireNotNull(this.activity).application
         val viewModelFactory = HomeViewModelFactory(application)
-        val viewModel = ViewModelProvider(requireActivity(), viewModelFactory)[HomeViewModel::class.java]
+        val viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory)[HomeViewModel::class.java]
         binding.lifecycleOwner = this
         binding.getStarted.setOnClickListener {
             viewModel.insert()

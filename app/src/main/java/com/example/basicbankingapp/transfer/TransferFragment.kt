@@ -21,7 +21,8 @@ class TransferFragment : Fragment() {
         val account = TransferFragmentArgs.fromBundle(requireArguments()).account
         val application = requireNotNull(this.activity).application
         val viewModelFactory = TransferViewModelFactory(application, account)
-        val viewModel = ViewModelProvider(requireActivity(), viewModelFactory)[TransferViewModel::class.java]
+        val viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory)[TransferViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.select.setOnClickListener {
@@ -33,17 +34,24 @@ class TransferFragment : Fragment() {
 
         }
         binding.transferAmount.setOnClickListener {
-            if(binding.amountEt.text.isNullOrEmpty()||binding.realReceiver.text.isNullOrEmpty()){
-                Toast.makeText(requireContext(),"Must specify an amount and a receiver account",Toast.LENGTH_SHORT).show()
-            }
-            else {
+            if (binding.amountEt.text.isNullOrEmpty() || binding.realReceiver.text.isNullOrEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Must specify an amount and a receiver account",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
                 val amount = binding.amountEt.text.toString().toDouble()
-                if(viewModel.validate(amount)){
+                if (viewModel.validate(amount)) {
                     viewModel.update(amount)
-                    this.findNavController().navigate(TransferFragmentDirections.actionTransferFragmentToAccountsFragment())
-                }
-                else{
-                    Toast.makeText(requireContext(),"Must specify a valid amount",Toast.LENGTH_SHORT).show()
+                    this.findNavController()
+                        .navigate(TransferFragmentDirections.actionTransferFragmentToAccountsFragment())
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Must specify a valid amount",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             }

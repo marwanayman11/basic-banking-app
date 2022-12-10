@@ -15,6 +15,7 @@ class DetailsViewModel(application: Application, account: AccountsDatabase) :
     init {
         _selectedAccount.value = account
     }
+
     private val _navigateToTransfer = MutableLiveData<AccountsDatabase?>()
     val navigateToTransfer: LiveData<AccountsDatabase?>
         get() = _navigateToTransfer

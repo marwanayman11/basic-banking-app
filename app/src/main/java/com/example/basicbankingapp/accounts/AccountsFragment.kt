@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.basicbankingapp.adapters.AccountAdapter
 import com.example.basicbankingapp.R
+import com.example.basicbankingapp.adapters.AccountAdapter
 import com.example.basicbankingapp.databinding.FragmentAccountsBinding
 
 class AccountsFragment : Fragment() {

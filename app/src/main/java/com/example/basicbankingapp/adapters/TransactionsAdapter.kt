@@ -12,7 +12,7 @@ class TransactionsAdapter :
     ListAdapter<TransactionsDatabase, TransactionsAdapter.TransactionsViewHolder>(DiffCallback) {
     class TransactionsViewHolder(private var binding: TransactionsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(transaction : TransactionsDatabase) {
+        fun bind(transaction: TransactionsDatabase) {
             binding.transaction = transaction
             binding.executePendingBindings()
         }
@@ -49,7 +49,6 @@ class TransactionsAdapter :
             return oldItem.id == newItem.id
         }
     }
-
 
 
 }

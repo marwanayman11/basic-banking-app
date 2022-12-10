@@ -58,10 +58,10 @@
     <fragment
         android:id="@+id/selectFragment"
         android:name="com.example.basicbankingapp.transfer.SelectFragment"
-        android:label="" >
-    <argument
-        android:name="account"
-        app:argType="com.example.basicbankingapp.database.AccountsDatabase" />
+        android:label="">
+        <argument
+            android:name="account"
+            app:argType="com.example.basicbankingapp.database.AccountsDatabase" />
     </fragment>
     <fragment
         android:id="@+id/transactionsFragment"

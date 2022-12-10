@@ -11,6 +11,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<AccountsDatabase>?) 
     adapter.submitList(data)
 
 }
+
 @BindingAdapter("listTransactions")
 fun bindTransactionsRecyclerView(recyclerView: RecyclerView, data: List<TransactionsDatabase>?) {
     val adapter = recyclerView.adapter as TransactionsAdapter

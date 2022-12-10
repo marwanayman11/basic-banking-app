@@ -31,48 +31,44 @@
                 android:layout_height="wrap_content"
                 android:text="@string/sender"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/realTrnSender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{transaction.sender}"
-                android:textSize="20sp"
-                 />
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/trnReceiver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/receiver"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/realTrnReceiver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{transaction.receiver}"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/trnAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/amount"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/realTrnAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{String.valueOf(transaction.amount)+'$'}"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

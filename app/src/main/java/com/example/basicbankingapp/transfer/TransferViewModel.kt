@@ -27,29 +27,31 @@ class TransferViewModel(application: Application, account: AccountsDatabase) :
         _senderAccount.value = account
     }
 
-    fun setReceiver(account: AccountsDatabase){
+    fun setReceiver(account: AccountsDatabase) {
         _receiverAccount.value = account
     }
+
     fun validate(amount: Double): Boolean {
         return amount <= _senderAccount.value!!.currentBalance && amount != 0.0
     }
-   fun update(amount: Double) {
-       val senderBalance = _senderAccount.value!!.currentBalance - amount
-       val receiverBalance = _receiverAccount.value!!.currentBalance + amount
-       val transaction = TransactionsDatabase(
-           sender = _senderAccount.value!!.accountNumber,
-           receiver = _receiverAccount.value!!.accountNumber,
-           amount = amount
-       )
-       viewModelScope.launch {
-               database.accountDao.update(_senderAccount.value!!.id, senderBalance)
-       }
-       viewModelScope.launch {
-           database.accountDao.update(_receiverAccount.value!!.id, receiverBalance)
 
-       }
-       viewModelScope.launch {
-           transactionsDatabase.transactionsDao.insertTransactions(transaction)
-       }
-   }
+    fun update(amount: Double) {
+        val senderBalance = _senderAccount.value!!.currentBalance - amount
+        val receiverBalance = _receiverAccount.value!!.currentBalance + amount
+        val transaction = TransactionsDatabase(
+            sender = _senderAccount.value!!.accountNumber,
+            receiver = _receiverAccount.value!!.accountNumber,
+            amount = amount
+        )
+        viewModelScope.launch {
+            database.accountDao.update(_senderAccount.value!!.id, senderBalance)
+        }
+        viewModelScope.launch {
+            database.accountDao.update(_receiverAccount.value!!.id, receiverBalance)
+
+        }
+        viewModelScope.launch {
+            transactionsDatabase.transactionsDao.insertTransactions(transaction)
+        }
+    }
 }

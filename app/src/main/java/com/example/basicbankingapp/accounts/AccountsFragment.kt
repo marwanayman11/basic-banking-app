@@ -13,7 +13,6 @@ import com.example.basicbankingapp.R
 import com.example.basicbankingapp.databinding.FragmentAccountsBinding
 
 class AccountsFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

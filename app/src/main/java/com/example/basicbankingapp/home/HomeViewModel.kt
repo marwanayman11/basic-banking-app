@@ -73,8 +73,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     )
 
     fun insert() {
+        for (account in accounts) {
         viewModelScope.launch {
-            for (account in accounts) {
                 database.accountDao.insertAll(account)
             }
 
